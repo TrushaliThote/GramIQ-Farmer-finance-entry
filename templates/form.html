@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farm Finance Report | GramIQ</title>
+
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            background: #f0f2f5;
+        }
+        .container-box {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            margin-top: 40px;
+            margin-bottom: 40px;
+        }
+        h2, h4 {
+            font-weight: 600;
+            color: #333;
+        }
+        textarea {
+            font-size: 15px;
+        }
+        .btn-primary {
+            padding: 10px 20px;
+            font-size: 18px;
+            border-radius: 8px;
+        }
+        .section-box {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 25px;
+            border-left: 4px solid #0d6efd;
+        }
+        .logo {
+            width: 120px;
+            margin-bottom: 10px;
+        }
+        .header-title {
+            font-size: 28px;
+            font-weight: bold;
+            margin-top: 5px;
+            color: #2b4f81;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="container-box text-center">
+
+            <!-- ⭐ GramIQ Logo -->
+            <img src="/static/gramiq_logo.png" alt="GramIQ Logo" class="logo">
+
+            <h2 class="header-title">GramIQ – Farm Finance Entry</h2>
+            <hr>
+
+            <form action="/generate" method="post">
+
+                <!-- Farmer Details -->
+                <div class="section-box text-start">
+                    <h4>👨‍🌾 Farmer & Crop Details</h4>
+
+                    <div class="row mt-3">
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Farmer Name</label>
+                            <input type="text" name="farmer_name" class="form-control" required>
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Crop Name</label>
+                            <input type="text" name="crop_name" class="form-control" required>
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Season</label>
+                            <select name="season" class="form-select" required>
+                                <option value="">Select Season</option>
+                                <option>summer</option>
+                                <option>winter</option>
+                                <option>rainy</option>
+                            </select>
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Total Acres</label>
+                            <input type="number" name="acres" class="form-control" step="0.1" required>
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Date of Sowing</label>
+                            <input type="date" name="sow_date" class="form-control" required>
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Date of Harvest</label>
+                            <input type="date" name="harvest_date" class="form-control" required>
+                        </div>
+
+                        <div class="col-12 mb-3">
+                            <label class="form-label">Location (Village/Taluka/District/State)</label>
+                            <input type="text" name="location" class="form-control" required>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Expenses -->
+                <div class="section-box text-start">
+                    <h4>💰 Expense Details</h4>
+                    <p class="text-muted">Format: Category, Amount, Date, Description</p>
+                    <textarea name="expenses" rows="5" class="form-control" placeholder="Example: Fertilizers, 1500, 2025-11-05, Bought XYZ"></textarea>
+                </div>
+
+                <!-- Incomes -->
+                <div class="section-box text-start">
+                    <h4>💵 Income Details</h4>
+                    <p class="text-muted">Format: Category, Amount, Date, Description</p>
+                    <textarea name="incomes" rows="5" class="form-control" placeholder="Example: Sale of produce, 25000, 2025-11-05, Sold 5 Quintals"></textarea>
+                </div>
+
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary">
+                        Generate PDF Report
+                    </button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>
